@@ -1,0 +1,36 @@
+html,body {
+  height:100%;
+}
+body {
+  background:#fff;
+  overflow-y:scroll;
+  *overflow-y:visible;
+  font:normal normal 12px/1.5 Monaco, tahoma, Ubuntu, Arial, "libra sans", sans-serif, simsun
+}
+a:link {
+  color:#08c;
+  text-decoration:none;
+}
+a:visited { text-decoration:none }
+a:hover { /* 自定义 */ }
+a:active { /* 自定义 */ }
+
+.fl { float:left }
+.fr { float:right }
+.tal { text-align:left }
+.tar { text-align:right }
+.tac { text-align:center }
+.tov { text-indent:-1000em } /* text-outside-viewport */
+.pos-abs { position:absolute }
+.pos-rel { position:relative }
+.not-display { display:none }
+.not-visible { visibility:hidden }
+.top-z-index { z-index:10000!important }
+.flow-visible { overflow:visible!important }
+
+/* 清除浮动，触发ie浏览器的haslayout属性，让这些css在ie低版本浏览器下也能被正常解析 */
+.clearfix,.haslayout { *zoom:1 } 
+.clearfix:after { height:0; content:'.'; clear:both; display:block; visibility:hidden }
+
+/* 更多公用样式 */
+/* .more { ... } */
