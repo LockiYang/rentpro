@@ -1,42 +1,57 @@
-html,body,div,p,ul,ol,li,dl,dt,dd,h1,h2,h3,h4,h5,h6,img,
-form,fieldset,legend,label,input,button,select,textarea,
-/* HTML5 元素 */
-article, aside, details, figcaption, figure, footer,header, hgroup, menu, nav, section,
-summary, time, mark, audio, video {
-  margin:0;
-  padding:0
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+main, menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	vertical-align: baseline;
 }
-h1,h2,h3,h4,h5,h6,
-input,button,select,textarea {
-  /* 字体大小继承自父级元素 */
-  font-size: 100%
+article, aside, details, figcaption, figure,
+footer, header, hgroup, main, menu, nav, section {
+	display: block;
 }
-ul,ol {
-  list-style:none
+address,caption,cite,code,dfn,em,strong,th,var { 
+    font-weight: normal; 
+    font-style: normal; 
 }
-fieldset {
-  padding:0 .5em .5em;
-  border:1px solid #ccc
+caption,th { 
+    text-align: left; 
 }
-legend {
-  padding:0 .5em
+h1,h2,h3,h4,h5,h6 { 
+    font-weight: normal; 
+    font-size: 100%; 
+}
+abbr,acronym { 
+    border: 0; 
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+a:hover, a:active {
+    outline: none;
 }
 table {
-  border-spacing:0;
-  border-collapse:collapse
-}
-th {
-  text-align:left
-}
-input,button,select,textarea {
-  outline:none;
-  font:normal normal 12px/1.5 tahoma, Monaco, Ubuntu, Arial, "libra sans", sans-serif, simsun
-}
-/* 清除img的边距 */
-img {
-  vertical-align:top
-}
-/* 清除元素默认边框 */
-img,iframe {
-  border:0 none
+	border-collapse: collapse;
+	border-spacing: 0;
 }

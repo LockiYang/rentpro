@@ -9,6 +9,7 @@ import com.rentpro.account.entity.User;
 public interface UserDao extends PagingAndSortingRepository<User, Long> {
 
 	User findByLoginName(String loginName);
+	User findByLoginMail(String loginMail);
 	
 	@Query("from User user where user.id=?1")
 	User findByUserId(Long id);

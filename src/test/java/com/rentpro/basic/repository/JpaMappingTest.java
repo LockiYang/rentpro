@@ -42,7 +42,7 @@ public class JpaMappingTest
 			String entityName = entityType.getName();
 			em.createQuery("select o from " + entityName + " o")
 					.getResultList();
-			logger.info("------mapping ok: " + entityName);
+			logger.info("######mapping ok: " + entityName);
 		}
 	}
 }

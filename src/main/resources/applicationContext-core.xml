@@ -16,6 +16,9 @@
 
 	<!-- 引入属性文件 -->
 	<context:property-placeholder location="classpath:application.properties" />
+	
+	<!-- Spring context bean -->
+	<bean id="springContextHolder" class="com.lockipro.modules.utils.SpringContextHolder" lazy-init="false"/>
 
 	<!-- 自动扫描(除了@Controller) -->
 	<context:component-scan base-package="com.rentpro">
@@ -35,6 +38,11 @@
 		<property name="rejectedExecutionHandler"><!-- 线程拒绝任务的处理策略 -->
 			<bean class="java.util.concurrent.ThreadPoolExecutor$CallerRunsPolicy"/>
 		</property>
+	</bean>
+	
+	<!-- 缓存配置 -->
+	<bean id="cacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<property name="configLocation" value="classpath:cache/ehcache-local.xml" />
 	</bean>
 	
 	<!-- 定义aspectj -->

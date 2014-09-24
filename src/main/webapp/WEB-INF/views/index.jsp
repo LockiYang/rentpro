@@ -3,6 +3,7 @@
 <c:set var="ctx" value="${pageContext.request.contextPath}" />
 <html>
 <head>
+<meta name="decorator" content="default"/>
 </head>
 
 <body>

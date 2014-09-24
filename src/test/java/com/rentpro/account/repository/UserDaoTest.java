@@ -18,10 +18,10 @@ public class UserDaoTest {
 	
 	@Test
 	public void testSave() {
-		User user = new User(1L, "jack", "rose");
-		userDao.save(user);
-		User result = userDao.findByLoginName("jack");
-		System.out.println(result.getNickName());
+//		User user = new User(1L, "jack", "rose");
+//		userDao.save(user);
+//		User result = userDao.findByLoginName("jack");
+//		System.out.println(result.getNickName());
 	}
 
 }

@@ -2,8 +2,11 @@ package com.rentpro.account.web;
 
 import javax.validation.Valid;
 
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.UsernamePasswordToken;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,19 +34,28 @@ public class RegisterController {
 	}
 
 	@RequestMapping(method = RequestMethod.POST)
-	public String register(@Valid User user, RedirectAttributes redirectAttributes) {
-		accountService.registerUser(user);
-		redirectAttributes.addFlashAttribute("username", user.getLoginName());
-		return "redirect:/login";
+	public String register(@Valid User user, RedirectAttributes redirectAttributes, Errors errors) {
+		if (errors.hasErrors()) {
+			
+		}
+		accountService.register(user);
+		UsernamePasswordToken token = new UsernamePasswordToken();
+		token.setUsername(user.getLoginMail());
+		token.setPassword(user.getPlainPassword().toCharArray());
+		token.setRememberMe(true);
+		SecurityUtils.getSubject().login(token);
+		return "redirect:/";
+//		redirectAttributes.addFlashAttribute("username", user.getLoginMail()); //对象重定向传参
+//		return "redirect:/login"; //防止刷新重复提交
 	}
 
 	/**
 	 * Ajax请求校验loginName是否唯一。
 	 */
-	@RequestMapping(value = "checkLoginName")
+	@RequestMapping(value = "checkLoginMail")
 	@ResponseBody
-	public String checkLoginName(@RequestParam("loginName") String loginName) {
-		if (accountService.findUserByLoginName(loginName) == null) {
+	public String checkLoginName(@RequestParam("loginMail") String loginMail) {
+		if (accountService.get(loginMail) == null) {
 			return "true";
 		} else {
 			return "false";
